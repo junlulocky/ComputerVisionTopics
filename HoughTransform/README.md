@@ -3,7 +3,10 @@
 ##Finding Lines - Linear Hough Transform
 Directory: Linear Hough Transform
 
-Formula: xcos(θ)+ysin(θ) = r,0≤θ<π
+Formula: 
+```
+xcos(θ)+ysin(θ) = r, 0≤θ<π
+```
 
 Input: 
   - Canny edge points. 
@@ -20,6 +23,15 @@ The idea can be extended to detect any shape, which is called generalized Hough 
 - It uses single image to detect, i.e. it does not use previous image in the video.
 - Robust: even some part of the object is covered by other objects, we can still detect such object.
 - Stable, fast, we can do it in real time.
+
+
+##Finding Cycles - Circylar Hough Transform
+
+Formula: 
+```
+x=x0 +rcos(θ), 0≤θ<π, with x0 is the x axis of the center point
+y=y0 +rsin(θ), 0≤θ<π, with y0 is the y axis of the center point
+```
 
 ### Comment
 An alternative to the Linear Hough Transform is the RANdom SAmple Consensus(RANSAC) algorithm. In brief, RANSAC randomly chooses pairs of edgels to form a line hypothesis and then tests how many other edgels fall onto this line. Lines with sufficiently large numbers of `inliers`(matching edgels) are then selected as the desired line segments. 
