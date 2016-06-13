@@ -6,16 +6,13 @@ function bw = adaptive_thresholding(im,sz,threshold)
 
 % bw        - output binary image
 
-%% your implementation starts here
+%% adaptive threshold
 avgFilt = fspecial('average', sz);
 imgFilt = imfilter( im, avgFilt, 'symmetric' );
 imgSub = imgFilt - im;
 imgThres = imgSub - threshold;
 
 bw = zeros(size(imgThres));
-bw(imgThres>=0)=1;
-
-
-
+bw(imgThres<=0)=1;
 
 end
